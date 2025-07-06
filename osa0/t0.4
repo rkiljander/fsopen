@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant Browser
+    participant Server
+
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note 
+    activate Server
+    serveri päivittää data.jsonin
+    Server-->>Browser: HTML uudelleenlataus
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server-->>Browser: main.css
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate Server
+    Server-->>Browser: main.js
+    deactivate Server
+
+    Selain suorittaa JavaScript-koodin
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>Browser: JSON-data 
+    deactivate Server
+
+    Selain renderöi uudelleen

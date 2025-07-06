@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Browser
+    participant Server
+
+    käyttäjä tallentaa muistiinpanon
+    js lisää taulukkoon, päivittää näkymän
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa 
+    activate Server
+    serveri tallentaa muistiinpanon
+    Server-->>Browser: Vastaus (201 Created)
+    deactivate Server
